@@ -17,7 +17,7 @@ export default function Form() {
             const listNameConstant =  textarea.value.split("\n")
             listNameConstant.map((item,index) => {
               let nameObject ={
-                id: index+1,
+                id: index,
                 option:item
               }
               setName(name => [...name, nameObject]);

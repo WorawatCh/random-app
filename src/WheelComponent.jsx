@@ -21,7 +21,7 @@ export default function WheelComponent(props) {
   // console.log('data',data)
 
   const handleSpinClick = () => {
-    const newPrizeNumber = Math.floor(Math.random() * props.nameList.length);
+    const newPrizeNumber = Math.floor(Math.random() * data.length);
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
   };
@@ -53,7 +53,7 @@ export default function WheelComponent(props) {
           radiusLineColor={["#dedede"]}
           radiusLineWidth={[10]}
           textColors={["#ffffff"]}
-          fontSize={[50]}
+          fontSize={[10]}
           perpendicularText={[true]}
           backgroundColors={[
             "#F22B35",
@@ -84,3 +84,4 @@ export default function WheelComponent(props) {
     </>
   )
 }
+
