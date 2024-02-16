@@ -33,7 +33,9 @@ export default function WheelComponent(props) {
 
   const handleOk = () => {
     setIsModalOpen(false);
-    setData(d => d.filter((_,index) => index !== (prizeNumber)))
+    if(props.radioBtn){
+      setData(d => d.filter((_,index) => index !== (prizeNumber)))
+    }
   };
 
   // function handleCheck(){
@@ -69,9 +71,9 @@ export default function WheelComponent(props) {
         />
         {
           data.length > 1 ?
-          <Button className="button2" onClick={handleSpinClick}>
-          SPIN
-        </Button> :
+          <Button className="button2" onClick={handleSpinClick} disabled={mustSpin}>
+            SPIN
+          </Button> :
         ""
         }
         {/* <Button className="button2" onClick={handleCheck}>
