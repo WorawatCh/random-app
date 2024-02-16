@@ -53,8 +53,7 @@ export default function WheelComponent(props) {
           radiusLineColor={["#dedede"]}
           radiusLineWidth={[10]}
           textColors={["#ffffff"]}
-          fontSize={[10]}
-          perpendicularText={[true]}
+          fontSize={[30]}
           backgroundColors={[
             "#F22B35",
             "#F99533",
@@ -63,14 +62,18 @@ export default function WheelComponent(props) {
             "#46AEFF",
             "#9145B7"
           ]}
+          disableInitialAnimation={true}
           onStopSpinning={() => {
             onHandleWinner(prizeNumber)
           }}
         />
-        <Button className="button2" onClick={handleSpinClick}>
+        {
+          data.length > 1 ?
+          <Button className="button2" onClick={handleSpinClick}>
           SPIN
-        </Button>
-        <hr/>
+        </Button> :
+        ""
+        }
         {/* <Button className="button2" onClick={handleCheck}>
           CHECK
         </Button> */}

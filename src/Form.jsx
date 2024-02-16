@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Input } from 'antd';
-import { Button } from 'antd';
+import { Input,Flex,Button } from 'antd';
 import WheelComponent from './WheelComponent.jsx'
 
 export default function Form() {
@@ -26,36 +25,20 @@ export default function Form() {
           setIsGenerate(true)
     }
 
-    function handleRandom(){
-      const randomGeneratedNumber = Math.floor(Math.random() * name.length);
-      setRandomNumber(randomGeneratedNumber)
-      console.log('randomNumber',randomNumber)
-      setName( n => n.filter((_,i) => i !== randomGeneratedNumber))
-    }
-
-
-
   return (
     <>
-    
-    <div className="Content">
-    {
-      !isGenerate ? 
-      <>
-      <TextArea id='content-textarea' style={{ height: 500, resize: 'none', width:500 }}/>
-      <br /> 
-      <Button onClick={handleGenerate}>Generate</Button>
-      </>
-      :  <WheelComponent nameList={name} />
-    }
-    </div>
-         
-        
-          {/* { 
-            name.map((item,index) => 
-             <div key={index}>{item.id + ' - ' + item.name }</div> 
-            )
-          } */}
+      <div className="Content">
+        {
+          !isGenerate ? 
+          <>
+            <Flex vertical gap="small" justify='center'  align='center'>
+              <TextArea id='content-textarea' style={{ height: '50vh', resize: 'none', width:'60vw' }}/>
+              <Button onClick={handleGenerate}>Generate</Button>
+            </Flex>
+          </>
+          :  <WheelComponent nameList={name} />
+        }
+      </div>
     </>
   )
 }
